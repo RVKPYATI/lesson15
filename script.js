@@ -38,6 +38,7 @@ DomElement.prototype.creacteDom = function() {
 const newObjDiv = new DomElement('.block', 100, 100, 'red', 16);
 const newObjParag = new DomElement('#best', 50, 70, 'green', 14);
 
-console.log(newObjDiv.creacteDom());
-console.log(newObjParag.creacteDom());
+document.body.append(newObjDiv.creacteDom());
+document.body.append(newObjParag.creacteDom());
+
 
