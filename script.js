@@ -9,28 +9,26 @@ const DomElement = function(selector, height, width, bg, fontSize) {
 };
 
 DomElement.prototype.creacteDom = function() {
-    if(this.selector[0] === '.') {
-        const div = document.createElement('div');
-        div.classList.add(this.selector.slice(1));
-        div.style.cssText = `
+    const addElem = (elem)=> {
+        elem.classList.add(this.selector.slice(1));
+        elem.style.cssText = `
         height: ${this.height}px;
         width: ${this.width}px;
         background: ${this.bg};
         font-size: ${this.fontSize}px;
         `;
-        div.textContent = "Любой текст";
+        elem.textContent = "Любой текст";
+        return elem;
+    }
+    if(this.selector[0] === '.') {
+        const div = document.createElement('div');
+        addElem(div);
         return div;
+        
     }
     if(this.selector[0] === '#') {
         const parag = document.createElement('p');
-        parag.id = (this.selector.slice(1));
-        parag.style.cssText = `
-        height: ${this.height}px;
-        width: ${this.width}px;
-        background: ${this.bg};
-        font-size: ${this.fontSize}px;
-        `;
-        parag.textContent = "Любой текст";
+        addElem(parag);
         return parag;
     }
 };
