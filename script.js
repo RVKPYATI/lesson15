@@ -19,7 +19,7 @@ DomElement.prototype.creacteDom = function() {
         `;
         elem.textContent = "Любой текст";
         return elem;
-    }
+    };
     if(this.selector[0] === '.') {
         const div = document.createElement('div');
         addElem(div);
